@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Project</title>
+  <style>
+    body {
+  background: linear-gradient(135deg, #ff00cc, #333399, #00ffff,#ff00cc,#333399);
+  background-size: 200% 200%;
+  animation: gradientShift 15s ease infinite;
+  font-family: Arial, sans-serif
+    }
+
+       header {
+    display: flex;
+      justify-content: space-between;
+      padding: 10px 20px;
+      color: white;
+      font-weight:bold;
+      font-size: 25px;
+
+       }
+
+
+
+    .container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 50px;
+    }
+
+    .box {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 8px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .submit-btn {
+      background: #8e2de2;
+      color: white;
+    }
+
+    .add-btn {
+      background: #7f00ff;
+      color: white;
+      margin-top: 10px;
+    }
+
+    .remove-btn {
+      background: #ff4b5c;
+      color: white;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div>Contact form</div>
+    <nav>
+      <a href="#" style="margin-right: 10px; color:white;">Contact</a>
+      <a href="#" style="color:white;">To-Do</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <!-- Contact Form -->
+    <div class="box">
+      <h2>Contact Us</h2>
+      <form id="contactForm">
+        <label>Name:</label><br>
+        <input type="text" name="name" required><br>
+ <label>Email:</label><br>
+        <input type="email" name="email" required><br>
+        <label>Password:</label><br>
+        <input type="password" name="password" required><br>
+        <button class="add-btn" onclick="addTask()">Submit</button>
+      </form>
+    </div>
+
+    <!-- To-Do List -->
+    <div class="box">
+      <h2>To-Do List</h2>
+      <input type="text" id="taskInput" placeholder="New Task">
+      <button class="add-btn" onclick="addTask()">Add Task</button>
+      <ul id="taskList"></ul>
+    </div>
+  </div>
+
+  <script>
+    // Contact form submission
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Your form has been submitted!');
+      this.reset();
+    });
+
+    // To-Do List functionality
+    function addTask() {
+      const taskInput = document.getElementById('taskInput');
+      const taskList = document.getElementById('taskList');
+      const taskText = taskInput.value.trim();
+      if (taskText === '') return;
+
+      const li = document.createElement('li');
+      li.textContent = taskText + ' ';
+      const removeBtn = document.createElement('button');
+      removeBtn.textContent = 'Remove';
+      removeBtn.className = 'remove-btn';
+      removeBtn.onclick = function () {
+        taskList.removeChild(li);
+      };
+      li.appendChild(removeBtn);
+      taskList.appendChild(li);
+      taskInput.value = '';
+    }
+  </script>
+</body>
+</html>
