@@ -1,1 +1,19 @@
-# Prasanna2.html
+Sample Web Page README
+
+Description:
+This is a basic sample web page demonstrating HTML, CSS and JavaScript usage.
+
+Features:
+
+Responsive layout
+Simple navigation menu
+Styled with CSS
+How to Run:
+
+Open index1.html in any modern web browser.
+Technologies Used:
+
+HTML5
+CSS3
+Authour 
+Prasanna 
